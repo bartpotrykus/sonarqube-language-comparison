@@ -30,3 +30,11 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectKey=security-comparison
+            -Dsonar.projectName="Security Comparison"
+            -Dsonar.sources=.
+            -Dsonar.python.version=3
+            -Dsonar.java.source=21
+            -Dsonar.typescript.tsconfigPath=typescript/tsconfig.json
