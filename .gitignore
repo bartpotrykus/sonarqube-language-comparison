@@ -1,0 +1,10 @@
+# SonarQube
+.scannerwork/
+sonar-project.properties
+
+# Java compiled
+java/*.class
+
+# System
+.DS_Store
+Thumbs.db
