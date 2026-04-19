@@ -1,0 +1,15 @@
+rules:
+  - id: no-md5-anywhere
+    pattern-either:
+      - pattern: $X.getInstance("MD5")
+      - pattern: hashlib.md5(...)
+      - pattern: crypto.createHash("md5")
+    message: |
+      Wykryto użycie algorytmu MD5. MD5 jest kryptograficznie złamany
+      i nie powinien być używany do haszowania haseł ani podpisów cyfrowych.
+      Użyj SHA-256 lub SHA-512.
+    languages: [java, python, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: CWE-327
